@@ -20,7 +20,7 @@ import { RetentionStats } from './pages/cfo/RetentionStats'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/HR-New-Features">
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Navigate to="/employee/dashboard" replace />} />
