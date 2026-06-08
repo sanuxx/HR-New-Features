@@ -5,10 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/HR-New-Features/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>earrow-hr-demo</title>
+    <!-- SPA redirect decoder: restores the path that 404.html encoded into the query string -->
+    <script>
+      (function () {
+        var l = window.location;
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/HR-New-Features/assets/index-DyeZq5qc.js"></script>
     <link rel="stylesheet" crossorigin href="/HR-New-Features/assets/index-CUXJkA0f.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
